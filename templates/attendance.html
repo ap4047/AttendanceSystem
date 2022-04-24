@@ -1,0 +1,14 @@
+{% extends "index.html "%}
+
+
+{% block content  %}
+    
+<div class="container">
+    <form name="passname" action="/attendance" method="POST">
+    <label>Name:</label>
+    <input type="text" name="name">
+    <input type="submit" value="submit">
+
+    </form>
+</div>
+{% endblock  %}

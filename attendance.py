@@ -47,11 +47,13 @@ def attend():
                 dStr=time_now.strftime('%d/%m/%Y')
                 print("inside 47 line ")
                 f.write("\n")
-                f.writelines(f'{name},{tStr},{dStr}')
+            
+                f.writelines(f'{name},{tStr},{dStr},{1},{30},{3.33}')
+                return 
             i=0
             print("line 51",nameList)
             caught=-1
-            days=tuple()
+            days=[]
             for n in nameList:
               
                 if(name==n):
@@ -65,26 +67,28 @@ def attend():
                     time_diff= datetime.now() - datetime.strptime(entryList[i][2]+" "+entryList[i][1],'%d/%m/%Y %H:%M:%S' )
                     duration=time_diff.total_seconds()
                   
-                    days = divmod(duration, 86400)        # Get days (without [0]!)
+                    days = list(divmod(duration, 86400))        # Get days (without [0]!)
                     print(type(days))
                     hours   = divmod(days[1], 3600) 
                     # print(type(int(hours[0])))   
                     # # print("days=",time_diff.days)
                     
                     print(days)
+                 
                     
                  
                 i+=1
             if( int(days[0])>=1):
-                print("line 71 days=",int(days[0]))
-                time_now=datetime.now()
-                tStr=time_now.strftime('%H:%M:%S')
-                dStr=time_now.strftime('%d/%m/%Y')
-                f.write("\n")
-                p=int(entryList[caught][3])+1
-                print("inside 76 line")
-                perc=(p*100)/30
-                f.writelines(f'{name},{tStr},{dStr},{p},{30},{perc}')
+                        print("line 71 days=",int(days[0]))
+                        time_now=datetime.now()
+                        tStr=time_now.strftime('%H:%M:%S')
+                        dStr=time_now.strftime('%d/%m/%Y')
+                        f.write("\n")
+                        p=int(entryList[caught][3])+1
+                        print("inside 76 line")
+                        perc=(p*100)/30
+                        f.writelines(f'{name},{tStr},{dStr},{p},{30},{perc}')
+           
 
 
     cap=cv2.VideoCapture(0)
