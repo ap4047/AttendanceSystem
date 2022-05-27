@@ -4,7 +4,7 @@ import cv2
 import os
 from datetime import datetime
 import numpy as np
-def attend():
+def attend(subject):
     path="images"
     images=[]
     personName=[]
@@ -48,7 +48,7 @@ def attend():
                 print("inside 47 line ")
                 f.write("\n")
             
-                f.writelines(f'{name},{tStr},{dStr},{1},{30},{3.33}')
+                f.writelines(f'{name},{tStr},{dStr},{subject},{1},{30},{3.33}')
                 return 
             i=0
             print("line 51",nameList)
@@ -68,6 +68,7 @@ def attend():
                     duration=time_diff.total_seconds()
                   
                     days = list(divmod(duration, 86400))        # Get days (without [0]!)
+                    
                     print(type(days))
                     hours   = divmod(days[1], 3600) 
                     # print(type(int(hours[0])))   
@@ -78,16 +79,16 @@ def attend():
                     
                  
                 i+=1
-            if( int(days[0])>=1):
-                        print("line 71 days=",int(days[0]))
+            if( int(hours[0])>=1):
+                        print("line 71 days=",int(hours[0]))
                         time_now=datetime.now()
                         tStr=time_now.strftime('%H:%M:%S')
                         dStr=time_now.strftime('%d/%m/%Y')
                         f.write("\n")
-                        p=int(entryList[caught][3])+1
+                        p=int(entryList[caught][4])+1
                         print("inside 76 line")
                         perc=(p*100)/30
-                        f.writelines(f'{name},{tStr},{dStr},{p},{30},{perc}')
+                        f.writelines(f'{name},{tStr},{dStr},{subject},{p},{30},{perc}')
            
 
 
@@ -127,6 +128,7 @@ def attend():
             break
     cap.release()
     cv2.destroyAllWindows()
+    return 
 
 
 

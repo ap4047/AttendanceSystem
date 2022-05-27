@@ -1,0 +1,35 @@
+{% extends "index.html "%}
+
+
+{% block content  %}
+    
+<div class="jumbotron centered">
+  <div class="container">
+    <i class="fas fa-key fa-6x"></i>
+    <h1 class="display-3">Attendance System</h1>
+    <p class="lead">Dont keep your secrets, share them anonymously!</p>
+    <hr>
+  
+     <a class="btn btn-dark btn-lg" href="/attendance" role="button">Check_Attendance</a>
+     <div>
+
+     <form action="/take_attendance" method="POST">
+     <div class="form-group mt-5">
+     <label for="subject"><b>Choose subject<b></label>
+     <Select name="subject" class="form-control" required='required'>
+
+        <option value="Web Application Developement">Web Application Developement</option>
+        <option value="Cloud Computing">Cloud Computing</option>
+        <option value="Computer Network And Security">Computer Network And Security</option>
+        <option value="Data Science And Big Data Analytics ">Data Science And Big Data Analytics</option>
+
+    </Select><br><br>
+    <div>
+      <button type="submit" class="btn btn-dark btn-lg" >Take_Attendance</button>
+     </form>
+     </div>
+    
+
+  </div>
+</div>
+{% endblock  %}

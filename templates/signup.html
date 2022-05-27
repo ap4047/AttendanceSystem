@@ -1,0 +1,51 @@
+{% extends "index.html "%}
+
+
+{% block content  %}
+<div class="container mt-5"> 
+  <div class="row">
+      <div class="col-sm-8">
+        <div class="card">
+          <div class="card-body">
+      <h1 class="center">Register</h1>
+
+      <form name="signup_form" method="POST" action="/register" enctype="multipart/form-data" >
+
+
+         <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text"  name="studentname" class="form-control" required>
+          </div>
+          <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email"  name="email" class="form-control" required>
+          </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password"  name="password" class="form-control" required>
+            </div>
+       <div class="form-group">
+              <label for="Registration ID">Registration ID</label>
+              <input type="text"  name="reg_id" class="form-control" required>
+            </div>
+          <div class="form-group">
+              <label for="file">Image</label>
+              <input type="file"  name="photo" class="form-control" required>
+            </div>
+        
+        <p class="error error--hidden"></p>
+        
+     
+       <button type="submit" class="btn btn-dark">Sign up</button>
+      
+      
+      </form>
+  
+    </div>
+        </div>
+      </div>
+
+  
+    </div>
+  </div>
+{% endblock  %}
